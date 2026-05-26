@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1ª Festa da Massa — A∴R∴L∴S∴ Rosa Negra Nº 7074</title>
+    <style>
+        /* ===== RESET & BASE ===== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
+
+        :root {
+            --gold: #C9A84C;
+            --gold-light: #E8D48B;
+            --gold-dark: #9A7B2E;
+            --navy: #0A1628;
+            --navy-light: #1A2A4A;
+            --cream: #F5E6C8;
+            --cream-dark: #D4C4A0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            background-color: var(--navy);
+            color: var(--cream);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            background: linear-gradient(180deg, 
+                rgba(10, 22, 40, 0.7) 0%, 
+                rgba(10, 22, 40, 0.5) 50%, 
+                rgba(10, 22, 40, 0.9) 100%),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"><rect fill="%230A1628" width="1920" height="1080"/><g fill="%23C9A84C" opacity="0.05"><circle cx="960" cy="540" r="400" fill="none" stroke="%23C9A84C" stroke-width="2"/><circle cx="960" cy="540" r="350" fill="none" stroke="%23C9A84C" stroke-width="2"/></g></svg>');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at center, transparent 0%, rgba(10, 22, 40, 0.4) 100%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 40px 20px;
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        /* ===== TOP ORNAMENT ===== */
+        .ornament-top {
+            text-align: center;
+            margin-bottom: 30px;
+            opacity: 0;
+            animation: fadeInDown 1.2s ease forwards 0.3s;
+        }
+
+        .ornament-top .line {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        .ornament-top .line::before,
+        .ornament-top .line::after {
+            content: '';
+            height: 1px;
+            width: 100px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .ornament-top .diamond {
+            width: 10px;
+            height: 10px;
+            background: var(--gold);
+            transform: rotate(45deg);
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ===== HEADER / LODGE NAME ===== */
+        .header {
+            margin-bottom: 40px;
+            opacity: 0;
+            animation: fadeIn 1.5s ease forwards 0.6s;
+        }
+
+        .lodge-acronym {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+            color: var(--gold);
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            text-shadow: 0 0 20px rgba(201, 168, 76, 0.5);
+        }
+
+        .lodge-name {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--gold-light);
+            text-shadow:
+                0 0 30px rgba(201, 168, 76, 0.6),
+                0 0 60px rgba(201, 168, 76, 0.3),
+                0 4px 8px rgba(0, 0, 0, 0.8);
+            letter-spacing: 3px;
+            line-height: 1.2;
+            margin-bottom: 10px;
+        }
+
+        .lodge-name .acronym {
+            display: block;
+            font-size: 1.8rem;
+            letter-spacing: 6px;
+            margin-bottom: 10px;
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+        }
+
+        .lodge-number {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 4px;
+            text-shadow: 0 0 15px rgba(201, 168, 76, 0.4);
+        }
+
+        .lodge-orient {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--cream);
+            margin-top: 8px;
+            letter-spacing: 3px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* ===== DECORATIVE DIVIDER ===== */
+        .divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 30px auto;
+            gap: 10px;
+            opacity: 0;
+            animation: fadeIn 1s ease forwards 0.9s;
+        }
+
+        .divider .scroll {
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .divider .center-ornament {
+            position: relative;
+            width: 30px;
+            height: 15px;
+        }
+
+        .divider .center-ornament::before {
+            content: '✦';
+            color: var(--gold);
+            font-size: 1rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* ===== EVENT TITLE (FIXED ALIGNMENT) ===== */
+        .event-title-section {
+            margin: 40px 0 30px;
+            opacity: 0;
+            animation: fadeInUp 1.2s ease forwards 1.1s;
+        }
+
+        .event-title {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 4.2rem;
+            font-weight: 900;
+            color: var(--gold-light);
+            text-shadow:
+                0 0 40px rgba(201, 168, 76, 0.6),
+                0 0 80px rgba(201, 168, 76, 0.3),
+                0 6px 12px rgba(0, 0, 0, 0.8);
+            letter-spacing: 6px;
+            line-height: 1.1;
+            margin-bottom: 15px;
+        }
+
+        .event-title .first {
+            font-size: 3.8rem;
+            font-weight: 900;
+            line-height: 1;
+            /* vertical-align e margin removidos para correção do alinhamento */
+        }
+
+        .event-subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-style: italic;
+            color: var(--cream);
+            letter-spacing: 4px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ===== SCROLL INDICATOR ===== */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            animation: fadeIn 1s ease forwards 1.5s, bounce 2s ease-in-out infinite 2.5s;
+            z-index: 2;
+        }
+
+        .scroll-indicator .mouse {
+            width: 30px;
+            height: 50px;
+            border: 2px solid var(--gold);
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .scroll-indicator .wheel {
+            width: 4px;
+            height: 10px;
+            background: var(--gold);
+            border-radius: 2px;
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: scroll 1.5s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        @keyframes scroll {
+            0% { opacity: 1; transform: translateX(-50%) translateY(0); }
+            100% { opacity: 0; transform: translateX(-50%) translateY(15px); }
+        }
+
+        /* ===== MAIN CONTAINER ===== */
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            background: linear-gradient(180deg, transparent 0%, rgba(10, 22, 40, 0.95) 20%, rgba(10, 22, 40, 1) 40%);
+        }
+
+        /* ===== INFO CARDS ===== */
+        .info-section {
+            margin: 40px 0;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards 0.5s;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, rgba(26, 42, 74, 0.9), rgba(10, 22, 40, 0.95));
+            border: 2px solid rgba(201, 168, 76, 0.4);
+            border-radius: 15px;
+            padding: 30px 25px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .info-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .info-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(201, 168, 76, 0.2);
+            border-color: var(--gold);
+        }
+
+        .info-card .icon { font-size: 2.5rem; margin-bottom: 15px; }
+        .info-card .label {
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        .info-card .value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--cream);
+            line-height: 1.6;
+        }
+
+        /* ===== PRICE SECTION ===== */
+        .price-section {
+            text-align: center;
+            margin: 50px 0;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards 0.7s;
+        }
+
+        .price-card {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(26, 42, 74, 0.95), rgba(10, 22, 40, 0.98));
+            border: 3px solid var(--gold);
+            border-radius: 20px;
+            padding: 40px 60px;
+            position: relative;
+            box-shadow: 0 10px 40px rgba(201, 168, 76, 0.2);
+        }
+
+        .price-card::before, .price-card::after {
+            content: '✦';
+            position: absolute;
+            color: var(--gold);
+            font-size: 1.2rem;
+        }
+        .price-card::before { top: 15px; left: 20px; }
+        .price-card::after { bottom: 15px; right: 20px; }
+
+        .price-label {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        .price-value {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--gold-light);
+            text-shadow: 0 0 30px rgba(201, 168, 76, 0.4);
+            margin: 10px 0;
+        }
+        .price-note {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            font-style: italic;
+            color: var(--cream);
+            margin-top: 10px;
+        }
+        .price-note .icon { margin: 0 5px; }
+
+        /* ===== DRINKS BANNER ===== */
+        .drinks-banner {
+            text-align: center;
+            margin: 30px auto;
+            padding: 20px 50px;
+            background: linear-gradient(90deg, transparent, rgba(201, 168, 76, 0.15), transparent);
+            border-top: 2px solid rgba(201, 168, 76, 0.3);
+            border-bottom: 2px solid rgba(201, 168, 76, 0.3);
+            max-width: 600px;
+            opacity: 0;
+            animation: fadeIn 1s ease forwards 0.9s;
+        }
+        .drinks-banner .text {
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 5px;
+        }
+        .drinks-banner .icons { font-size: 1.8rem; margin-bottom: 8px; }
+
+        /* ===== COUNTDOWN ===== */
+        .countdown-section {
+            text-align: center;
+            margin: 50px 0;
+            opacity: 0;
+            animation: fadeIn 1s ease forwards 1.1s;
+        }
+        .countdown-label {
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            color: var(--gold);
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        .countdown-grid {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+        .countdown-item {
+            background: rgba(201, 168, 76, 0.1);
+            border: 2px solid rgba(201, 168, 76, 0.3);
+            border-radius: 15px;
+            padding: 20px 30px;
+            min-width: 100px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .countdown-item:hover {
+            background: rgba(201, 168, 76, 0.2);
+            border-color: var(--gold);
+            transform: translateY(-5px);
+        }
+        .countdown-item .number {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: var(--gold-light);
+            line-height: 1;
+            text-shadow: 0 0 20px rgba(201, 168, 76, 0.4);
+        }
+        .countdown-item .unit {
+            font-family: 'Cinzel', serif;
+            font-size: 0.8rem;
+            color: var(--cream);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 8px;
+        }
+
+        /* ===== CTA BUTTON ===== */
+        .cta-section {
+            text-align: center;
+            margin: 50px 0;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards 1.3s;
+        }
+        .cta-button {
+            display: inline-block;
+            padding: 22px 60px;
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--navy);
+            background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-dark));
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(201, 168, 76, 0.4), 0 0 40px rgba(201, 168, 76, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.5s ease;
+        }
+        .cta-button:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 10px 35px rgba(201, 168, 76, 0.5), 0 0 60px rgba(201, 168, 76, 0.3);
+        }
+        .cta-button:hover::before { left: 100%; }
+
+        /* ===== JURISDICTION ===== */
+        .jurisdiction {
+            text-align: center;
+            margin: 50px 0 30px;
+            opacity: 0;
+            animation: fadeIn 1s ease forwards 1.5s;
+        }
+        .jurisdiction .text {
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            color: var(--cream);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        .jurisdiction .rite {
+            font-family: 'Cinzel', serif;
+            font-size: 0.95rem;
+            color: var(--gold);
+            letter-spacing: 6px;
+        }
+
+        /* ===== FOOTER ORNAMENT ===== */
+        .ornament-bottom {
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 40px;
+            border-top: 1px solid rgba(201, 168, 76, 0.2);
+            opacity: 0;
+            animation: fadeIn 1s ease forwards 1.7s;
+        }
+        .ornament-bottom .line {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .ornament-bottom .line::before,
+        .ornament-bottom .line::after {
+            content: '';
+            height: 1px;
+            width: 100px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+        .ornament-bottom .diamond {
+            width: 10px;
+            height: 10px;
+            background: var(--gold);
+            transform: rotate(45deg);
+        }
+        .footer-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            font-style: italic;
+            color: var(--cream);
+            letter-spacing: 2px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .hero { min-height: 100vh; }
+            .lodge-name { font-size: 2.2rem; }
+            .lodge-name .acronym { font-size: 1.4rem; letter-spacing: 4px; }
+            
+            .event-title {
+                font-size: 2.6rem;
+                gap: 8px;
+            }
+            .event-title .first { font-size: 2.8rem; }
+            
+            .info-grid { grid-template-columns: 1fr; gap: 15px; }
+            .price-card { padding: 30px 40px; }
+            .price-value { font-size: 2.5rem; }
+            .countdown-grid { gap: 15px; }
+            .countdown-item { min-width: 80px; padding: 15px 20px; }
+            .countdown-item .number { font-size: 2rem; }
+            .cta-button { padding: 18px 40px; font-size: 1rem; }
+        }
+
+        @media (max-width: 480px) {
+            .lodge-name { font-size: 1.8rem; }
+            .lodge-name .acronym { font-size: 1.2rem; }
+            .event-title { font-size: 2rem; gap: 6px; }
+            .event-title .first { font-size: 2.2rem; }
+            .countdown-item { min-width: 70px; padding: 12px 15px; }
+            .countdown-item .number { font-size: 1.6rem; }
+        }
+
+        /* ===== GLOW EFFECT ===== */
+        .glow {
+            animation: glow 3s ease-in-out infinite alternate;
+        }
+        @keyframes glow {
+            from { text-shadow: 0 0 20px rgba(201, 168, 76, 0.4), 0 0 40px rgba(201, 168, 76, 0.2); }
+            to { text-shadow: 0 0 30px rgba(201, 168, 76, 0.7), 0 0 60px rgba(201, 168, 76, 0.4), 0 0 90px rgba(201, 168, 76, 0.2); }
+        }
+
+        /* ===== PARTICLES ===== */
+        .particles {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 1; overflow: hidden;
+        }
+        .particle {
+            position: absolute;
+            width: 3px; height: 3px;
+            background: var(--gold);
+            border-radius: 50%;
+            opacity: 0;
+            animation: floatUp linear infinite;
+        }
+        @keyframes floatUp {
+            0% { opacity: 0; transform: translateY(100vh) scale(0); }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.6; }
+            100% { opacity: 0; transform: translateY(-10vh) scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Particles Background -->
+    <div class="particles" id="particles"></div>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="ornament-top">
+                <div class="line"><div class="diamond"></div></div>
+            </div>
+
+            <header class="header">
+                <h1 class="lodge-name">
+                    <span class="acronym">A∴R∴L∴S∴</span>
+                    ROSA NEGRA
+                </h1>
+                <div class="lodge-number">Nº 7074</div>
+                <div class="lodge-orient">Oriente de Santos/SP</div>
+            </header>
+
+            <div class="divider">
+                <span class="scroll"></span>
+                <span class="center-ornament"></span>
+                <span class="scroll"></span>
+            </div>
+
+            <section class="event-title-section">
+                <h2 class="event-title glow">
+                    <span class="first">1ª</span> FESTA DA MASSA
+                </h2>
+                <p class="event-subtitle">Noite de Confraternização Maçônica</p>
+            </section>
+
+            <div class="scroll-indicator">
+                <div class="mouse"><div class="wheel"></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+        <section class="info-section">
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="icon">📅</div>
+                    <div class="label">Data</div>
+                    <div class="value">12 de Setembro<br>de 2026</div>
+                </div>
+                <div class="info-card">
+                    <div class="icon">🕢</div>
+                    <div class="label">Horário</div>
+                    <div class="value">19:30 às<br>22:30 h</div>
+                </div>
+                <div class="info-card">
+                    <div class="icon"></div>
+                    <div class="label">Local</div>
+                    <div class="value">Educandário Santista<br>Av. Cons. Nébias, 680<br>Santos/SP</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="price-section">
+            <div class="price-card">
+                <div class="price-label">Convite</div>
+                <div class="price-value">R$ 75,00</div>
+                <div class="price-note">
+                    <span class="icon">🍷</span>
+                    <span class="icon">🍺</span>
+                    Bebidas à parte
+                </div>
+            </div>
+        </section>
+
+        <div class="drinks-banner">
+            <div class="icons">🍷 </div>
+            <div class="text">BEBIDAS À PARTE</div>
+        </div>
+
+        <section class="countdown-section">
+            <div class="countdown-label">Contagem Regressiva</div>
+            <div class="countdown-grid" id="countdown">
+                <div class="countdown-item"><div class="number" id="days">---</div><div class="unit">Dias</div></div>
+                <div class="countdown-item"><div class="number" id="hours">--</div><div class="unit">Horas</div></div>
+                <div class="countdown-item"><div class="number" id="minutes">--</div><div class="unit">Minutos</div></div>
+                <div class="countdown-item"><div class="number" id="seconds">--</div><div class="unit">Segundos</div></div>
+            </div>
+        </section>
+
+        <div class="cta-section">
+            <a href="https://wa.me/5513996201994" class="cta-button" target="_blank" rel="noopener noreferrer">
+                ✦ Confirmar Presença ✦
+            </a>
+        </div>
+
+        <div class="jurisdiction">
+            <div class="text">Jurisdicionada ao GOSP/SP</div>
+            <div class="rite">R∴E∴A∴A∴</div>
+        </div>
+
+        <div class="ornament-bottom">
+            <div class="line"><div class="diamond"></div></div>
+            <div class="footer-text">"Liberdade, Igualdade e Fraternidade"</div>
+        </div>
+    </div>
+
+    <script>
+        function createParticles() {
+            const container = document.getElementById('particles');
+            for (let i = 0; i < 40; i++) {
+                const p = document.createElement('div');
+                p.classList.add('particle');
+                p.style.left = Math.random() * 100 + '%';
+                p.style.animationDuration = (Math.random() * 10 + 8) + 's';
+                p.style.animationDelay = (Math.random() * 10) + 's';
+                p.style.width = p.style.height = (Math.random() * 3 + 1) + 'px';
+                container.appendChild(p);
+            }
+        }
+        createParticles();
+
+        function updateCountdown() {
+            const eventDate = new Date('2026-09-12T19:30:00-03:00');
+            const now = new Date();
+            const diff = eventDate - now;
+            if (diff <= 0) {
+                ['days','hours','minutes','seconds'].forEach(id => document.getElementById(id).textContent = '0');
+                return;
+            }
+            document.getElementById('days').textContent = Math.floor(diff / (1000 * 60 * 60 * 24));
+            document.getElementById('hours').textContent = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = Math.floor((diff % (1000 * 60)) / 1000).toString().padStart(2, '0');
+        }
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
