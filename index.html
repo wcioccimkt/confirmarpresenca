@@ -3,268 +3,986 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Noite de Massas - Loja Maçônica Rosa Negra</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
-    
+    <title>1ª Festa da Massa — A∴ R∴ L∴ S∴ Rosa Negra Nº 7074</title>
     <style>
-        * {
+        /* ===== RESET & BASE ===== */
+        *, *::before, *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: #0b1a30; 
-            background-image: radial-gradient(circle, #142c4f 0%, #050d1a 100%);
-            color: #ffffff;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-            overflow-x: hidden;
-            position: relative;
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
+
+        :root {
+            --gold: #C9A84C;
+            --gold-light: #E8D48B;
+            --gold-dark: #9A7B2E;
+            --navy: #0A1628;
+            --navy-light: #1A2A4A;
+            --cream: #F5E6C8;
+            --cream-dark: #D4C4A0;
         }
 
-        /* Molduras laterais elegantes em dourado */
-        body::before, body::after {
-            content: "";
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            background-color: var(--navy);
+            color: var(--cream);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            background: linear-gradient(180deg, 
+                rgba(10, 22, 40, 0.7) 0%, 
+                rgba(10, 22, 40, 0.5) 50%, 
+                rgba(10, 22, 40, 0.9) 100%),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"><rect fill="%230A1628" width="1920" height="1080"/><g fill="%23C9A84C" opacity="0.05"><circle cx="960" cy="540" r="400" fill="none" stroke="%23C9A84C" stroke-width="2"/><circle cx="960" cy="540" r="350" fill="none" stroke="%23C9A84C" stroke-width="2"/></g></svg>');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
             position: absolute;
             top: 0;
+            left: 0;
+            right: 0;
             bottom: 0;
-            width: 12px;
-            background: linear-gradient(to bottom, #d4af37, #aa7c11, #ffe07d, #aa7c11, #d4af37);
-            z-index: 10;
+            background: radial-gradient(ellipse at center, transparent 0%, rgba(10, 22, 40, 0.4) 100%);
+            pointer-events: none;
         }
-        body::before { left: 0; }
-        body::after { right: 0; }
 
-        .container {
-            max-width: 550px;
-            width: 90%;
-            margin: 50px auto;
-            background: rgba(11, 26, 48, 0.9);
-            border: 2px solid #d4af37;
-            border-radius: 4px;
-            padding: 40px 30px;
-            text-align: center;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), inset 0 0 25px rgba(212, 175, 55, 0.2);
+        .hero-content {
+            position: relative;
             z-index: 2;
-            backdrop-filter: blur(8px);
+            text-align: center;
+            padding: 40px 20px;
+            max-width: 1000px;
+            width: 100%;
         }
 
-        /* Elementos litúrgicos/clássicos */
-        .emblem-header {
-            font-family: 'Cinzel', serif;
-            font-size: 2.2rem;
-            color: #d4af37;
-            letter-spacing: 6px;
-            margin-bottom: 5px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+        /* ===== TOP ORNAMENT ===== */
+        .ornament-top {
+            text-align: center;
+            margin-bottom: 30px;
+            opacity: 0;
+            animation: fadeInDown 1.2s ease forwards 0.3s;
         }
 
-        .subtitle {
+        .ornament-top .line {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        .ornament-top .line::before,
+        .ornament-top .line::after {
+            content: '';
+            height: 1px;
+            width: 100px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .ornament-top .diamond {
+            width: 10px;
+            height: 10px;
+            background: var(--gold);
+            transform: rotate(45deg);
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ===== HEADER / LODGE NAME ===== */
+        .header {
+            margin-bottom: 40px;
+            opacity: 0;
+            animation: fadeIn 1.5s ease forwards 0.6s;
+        }
+
+        .lodge-acronym {
             font-family: 'Cinzel', serif;
-            font-size: 1.2rem;
-            color: #ffffff;
-            text-transform: uppercase;
+            font-size: 1.5rem;
+            font-weight: 700;
             letter-spacing: 4px;
-            margin-bottom: 20px;
-            font-weight: 400;
+            color: var(--gold);
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            text-shadow: 0 0 20px rgba(201, 168, 76, 0.5);
         }
 
+        .lodge-name {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--gold-light);
+            text-shadow:
+                0 0 30px rgba(201, 168, 76, 0.6),
+                0 0 60px rgba(201, 168, 76, 0.3),
+                0 4px 8px rgba(0, 0, 0, 0.8);
+            letter-spacing: 3px;
+            line-height: 1.2;
+            margin-bottom: 10px;
+        }
+
+        .lodge-name .acronym {
+            display: block;
+            font-size: 1.8rem;
+            letter-spacing: 6px;
+            margin-bottom: 10px;
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+        }
+
+        .lodge-number {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 4px;
+            text-shadow: 0 0 15px rgba(201, 168, 76, 0.4);
+        }
+
+        .lodge-orient {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--cream);
+            margin-top: 8px;
+            letter-spacing: 3px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* ===== DECORATIVE DIVIDER ===== */
         .divider {
-            height: 2px;
-            width: 70%;
-            background: linear-gradient(to right, transparent, #d4af37, #ffe07d, #d4af37, transparent);
-            margin: 25px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 30px auto;
+            gap: 10px;
+            opacity: 0;
+            animation: fadeIn 1s ease forwards 0.9s;
+        }
+
+        .divider .scroll {
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .divider .center-ornament {
+            position: relative;
+            width: 30px;
+            height: 15px;
+        }
+
+        .divider .center-ornament::before {
+            content: '✦';
+            color: var(--gold);
+            font-size: 1rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* ===== EVENT TITLE (FIXED ALIGNMENT) ===== */
+        .event-title-section {
+            margin: 40px 0 30px;
+            opacity: 0;
+            animation: fadeInUp 1.2s ease forwards 1.1s;
         }
 
         .event-title {
-            font-family: 'Cinzel', serif;
-            font-size: 2.2rem;
-            color: #ffffff;
-            margin: 15px 0;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            background: linear-gradient(to right, #ffffff, #ffe07d, #ffffff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .intro-text {
-            font-size: 1rem;
-            line-height: 1.6;
-            color: #e0e6ed;
-            margin-bottom: 20px;
-            font-weight: 300;
-        }
-
-        /* Informações do Evento */
-        .info-section {
-            margin: 25px 0;
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-
-        .highlight {
-            color: #ffe07d;
-            font-weight: 600;
-        }
-
-        .address {
-            font-style: normal;
-            margin-top: 15px;
-            color: #cbd5e1;
-            font-size: 1rem;
-        }
-
-        /* Card de Investimento */
-        .price-card {
-            background: rgba(212, 175, 55, 0.06);
-            border: 1px solid rgba(212, 175, 55, 0.4);
-            border-radius: 6px;
-            padding: 22px;
-            margin: 30px auto;
-            max-width: 380px;
-            box-shadow: inset 0 0 15px rgba(212, 175, 55, 0.1);
-        }
-
-        .price-label {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #94a3b8;
-            margin-bottom: 5px;
-        }
-
-        .price-value {
-            font-family: 'Cinzel', serif;
-            font-size: 2.4rem;
-            color: #d4af37;
-            font-weight: 700;
-            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
-        }
-
-        .price-note {
-            font-size: 0.85rem;
-            color: #f1f5f9;
-            margin-top: 8px;
-            font-style: italic;
-            letter-spacing: 0.5px;
-        }
-
-        /* Chamada para Ação (CTA) com o novo link fornecido */
-        .btn-cta {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 16px 40px;
-            font-family: 'Cinzel', serif;
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: #050d1a;
-            background: linear-gradient(135deg, #ffe07d 0%, #d4af37 50%, #aa7c11 100%);
-            border: none;
-            border-radius: 4px;
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-            transition: all 0.3s ease;
-        }
-
-        .btn-cta:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
-            background: linear-gradient(135deg, #ffffff 0%, #ffe07d 50%, #d4af37 100%);
-        }
-
-        .btn-cta:active {
-            transform: translateY(-1px);
-        }
-
-        .rsvp-deadline {
-            font-size: 0.85rem;
-            color: #94a3b8;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 4.2rem;
+            font-weight: 900;
+            color: var(--gold-light);
+            text-shadow:
+                0 0 40px rgba(201, 168, 76, 0.6),
+                0 0 80px rgba(201, 168, 76, 0.3),
+                0 6px 12px rgba(0, 0, 0, 0.8);
+            letter-spacing: 6px;
+            line-height: 1.1;
             margin-bottom: 15px;
         }
 
-        /* Pavimento Mosaico na Base (Piso Xadrez Maçônico) */
-        .checkerboard-footer {
-            width: 100%;
-            height: 70px;
-            background-color: #ffffff;
-            background-image: 
-                linear-gradient(45deg, #111111 25%, transparent 25%), 
-                linear-gradient(-45deg, #111111 25%, transparent 25%), 
-                linear-gradient(45deg, transparent 75%, #111111 75%), 
-                linear-gradient(-45deg, transparent 75%, #111111 75%);
-            background-size: 40px 40px;
-            background-position: 0 0, 0 20px, 20px -20px, -20px 0;
-            border-top: 4px solid #d4af37;
-            z-index: 1;
+        .event-title .first {
+            font-size: 3.8rem;
+            font-weight: 900;
+            line-height: 1;
         }
 
-        /* Ajustes de Responsividade */
+        .event-subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-style: italic;
+            color: var(--cream);
+            letter-spacing: 4px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ===== SCROLL INDICATOR ===== */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            animation: fadeIn 1s ease forwards 1.5s, bounce 2s ease-in-out infinite 2.5s;
+            z-index: 2;
+        }
+
+        .scroll-indicator .mouse {
+            width: 30px;
+            height: 50px;
+            border: 2px solid var(--gold);
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .scroll-indicator .wheel {
+            width: 4px;
+            height: 10px;
+            background: var(--gold);
+            border-radius: 2px;
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: scroll 1.5s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        @keyframes scroll {
+            0% { opacity: 1; transform: translateX(-50%) translateY(0); }
+            100% { opacity: 0; transform: translateX(-50%) translateY(15px); }
+        }
+
+        /* ===== MAIN CONTAINER ===== */
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            background: linear-gradient(180deg, transparent 0%, rgba(10, 22, 40, 0.95) 20%, rgba(10, 22, 40, 1) 40%);
+        }
+
+        /* ===== INFO CARDS ===== */
+        .info-section {
+            margin: 40px 0;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards 0.5s;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, rgba(26, 42, 74, 0.9), rgba(10, 22, 40, 0.95));
+            border: 2px solid rgba(201, 168, 76, 0.4);
+            border-radius: 15px;
+            padding: 30px 25px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .info-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .info-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(201, 168, 76, 0.2);
+            border-color: var(--gold);
+        }
+
+        .info-card .icon { font-size: 2.5rem; margin-bottom: 15px; }
+        .info-card .label {
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        .info-card .value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--cream);
+            line-height: 1.6;
+        }
+
+        /* ===== PRICE CARD SECTION ===== */
+        .price-section {
+            text-align: center;
+            margin: 50px 0;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards 0.7s;
+        }
+
+        .price-card {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(26, 42, 74, 0.95), rgba(10, 22, 40, 0.98));
+            border: 3px solid var(--gold);
+            border-radius: 20px;
+            padding: 40px 60px;
+            position: relative;
+            box-shadow: 0 10px 40px rgba(201, 168, 76, 0.2);
+        }
+
+        .price-card::before, .price-card::after {
+            content: '✦';
+            position: absolute;
+            color: var(--gold);
+            font-size: 1.2rem;
+        }
+        .price-card::before { top: 15px; left: 20px; }
+        .price-card::after { bottom: 15px; right: 20px; }
+
+        .price-label {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        .price-value {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--gold-light);
+            text-shadow: 0 0 30px rgba(201, 168, 76, 0.4);
+            margin: 10px 0;
+        }
+        .price-note {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            font-style: italic;
+            color: var(--cream);
+            margin-top: 10px;
+        }
+        .price-note .icon { margin: 0 5px; }
+
+        /* ===== MENU CARD SECTION ===== */
+        .menu-section {
+            margin: 60px 0;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards 0.8s;
+        }
+
+        .menu-card {
+            background: linear-gradient(135deg, rgba(26, 42, 74, 0.95), rgba(10, 22, 40, 0.98));
+            border: 3px solid var(--gold);
+            border-radius: 20px;
+            padding: 50px 40px;
+            position: relative;
+            box-shadow: 0 10px 40px rgba(201, 168, 76, 0.2);
+        }
+
+        .menu-card::before,
+        .menu-card::after {
+            content: '✦';
+            position: absolute;
+            color: var(--gold);
+            font-size: 1.5rem;
+        }
+
+        .menu-card::before {
+            top: 20px;
+            left: 25px;
+        }
+
+        .menu-card::after {
+            bottom: 20px;
+            right: 25px;
+        }
+
+        .menu-title {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--gold-light);
+            text-align: center;
+            margin-bottom: 10px;
+            letter-spacing: 4px;
+            text-shadow: 0 0 20px rgba(201, 168, 76, 0.4);
+        }
+
+        .menu-subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--cream);
+            text-align: center;
+            margin-bottom: 40px;
+            letter-spacing: 2px;
+        }
+
+        .menu-category {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 3px;
+            margin: 30px 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(201, 168, 76, 0.3);
+            text-transform: uppercase;
+        }
+
+        .menu-category:first-of-type {
+            margin-top: 0;
+        }
+
+        .menu-items {
+            list-style: none;
+            padding: 0;
+        }
+
+        .menu-item {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            color: var(--cream);
+            padding: 12px 20px;
+            margin: 8px 0;
+            background: rgba(201, 168, 76, 0.05);
+            border-left: 3px solid var(--gold);
+            border-radius: 0 8px 8px 0;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .menu-item::before {
+            content: '▸';
+            color: var(--gold);
+            margin-right: 12px;
+            font-size: 0.9rem;
+        }
+
+        .menu-item:hover {
+            background: rgba(201, 168, 76, 0.15);
+            border-left-color: var(--gold-light);
+            transform: translateX(5px);
+            color: var(--gold-light);
+        }
+
+        /* ===== DRINKS BANNER ===== */
+        .drinks-banner {
+            text-align: center;
+            margin: 30px auto;
+            padding: 20px 50px;
+            background: linear-gradient(90deg, transparent, rgba(201, 168, 76, 0.15), transparent);
+            border-top: 2px solid rgba(201, 168, 76, 0.3);
+            border-bottom: 2px solid rgba(201, 168, 76, 0.3);
+            max-width: 600px;
+            opacity: 0;
+            animation: fadeIn 1s ease forwards 0.9s;
+        }
+        .drinks-banner .text {
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 5px;
+        }
+        .drinks-banner .icons { font-size: 1.8rem; margin-bottom: 8px; }
+
+        /* ===== COUNTDOWN ===== */
+        .countdown-section {
+            text-align: center;
+            margin: 50px 0;
+            opacity: 0;
+            animation: fadeIn 1s ease forwards 1.1s;
+        }
+        .countdown-label {
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            color: var(--gold);
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        .countdown-grid {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+        .countdown-item {
+            background: rgba(201, 168, 76, 0.1);
+            border: 2px solid rgba(201, 168, 76, 0.3);
+            border-radius: 15px;
+            padding: 20px 30px;
+            min-width: 100px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .countdown-item:hover {
+            background: rgba(201, 168, 76, 0.2);
+            border-color: var(--gold);
+            transform: translateY(-5px);
+        }
+        .countdown-item .number {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: var(--gold-light);
+            line-height: 1;
+            text-shadow: 0 0 20px rgba(201, 168, 76, 0.4);
+        }
+        .countdown-item .unit {
+            font-family: 'Cinzel', serif;
+            font-size: 0.8rem;
+            color: var(--cream);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 8px;
+        }
+
+        /* ===== CTA BUTTON ===== */
+        .cta-section {
+            text-align: center;
+            margin: 50px 0;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards 1.3s;
+        }
+        .cta-button {
+            display: inline-block;
+            padding: 22px 60px;
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--navy);
+            background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-dark));
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(201, 168, 76, 0.4), 0 0 40px rgba(201, 168, 76, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.5s ease;
+        }
+        .cta-button:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 10px 35px rgba(201, 168, 76, 0.5), 0 0 60px rgba(201, 168, 76, 0.3);
+        }
+        .cta-button:hover::before { left: 100%; }
+
+        /* ===== JURISDICTION ===== */
+        .jurisdiction {
+            text-align: center;
+            margin: 50px 0 30px;
+            opacity: 0;
+            animation: fadeIn 1s ease forwards 1.5s;
+        }
+        .jurisdiction .text {
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            color: var(--cream);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        .jurisdiction .rite {
+            font-family: 'Cinzel', serif;
+            font-size: 0.95rem;
+            color: var(--gold);
+            letter-spacing: 6px;
+        }
+
+        /* ===== FOOTER ORNAMENT ===== */
+        .ornament-bottom {
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 40px;
+            border-top: 1px solid rgba(201, 168, 76, 0.2);
+            opacity: 0;
+            animation: fadeIn 1s ease forwards 1.7s;
+        }
+        .ornament-bottom .line {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .ornament-bottom .line::before,
+        .ornament-bottom .line::after {
+            content: '';
+            height: 1px;
+            width: 100px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+        .ornament-bottom .diamond {
+            width: 10px;
+            height: 10px;
+            background: var(--gold);
+            transform: rotate(45deg);
+        }
+        .footer-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            font-style: italic;
+            color: var(--cream);
+            letter-spacing: 2px;
+        }
+
+        /* ===== SITE FOOTER ===== */
+        .site-footer {
+            text-align: center;
+            padding: 25px 20px;
+            font-family: 'Cinzel', serif;
+            font-size: 12px;
+            color: var(--cream-dark);
+            letter-spacing: 1.5px;
+            border-top: 1px solid rgba(201, 168, 76, 0.15);
+            background: rgba(5, 10, 20, 0.9);
+            margin-top: 40px;
+            transition: all 0.3s ease;
+        }
+
+        .site-footer span {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .site-footer:hover {
+            color: var(--cream);
+            border-top-color: var(--gold);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .hero { min-height: 100vh; }
+            .lodge-name { font-size: 2.2rem; }
+            .lodge-name .acronym { font-size: 1.4rem; letter-spacing: 4px; }
+            
+            .event-title {
+                font-size: 2.6rem;
+                gap: 8px;
+            }
+            .event-title .first { font-size: 2.8rem; }
+            
+            .info-grid { grid-template-columns: 1fr; gap: 15px; }
+            .price-card { padding: 30px 40px; }
+            .price-value { font-size: 2.5rem; }
+            
+            .menu-card {
+                padding: 35px 25px;
+            }
+            .menu-title {
+                font-size: 1.8rem;
+            }
+            .menu-item {
+                font-size: 1.05rem;
+                padding: 10px 15px;
+            }
+            
+            .countdown-grid { gap: 15px; }
+            .countdown-item { min-width: 80px; padding: 15px 20px; }
+            .countdown-item .number { font-size: 2rem; }
+            .cta-button { padding: 18px 40px; font-size: 1rem; }
+        }
+
         @media (max-width: 480px) {
-            .emblem-header { font-size: 1.8rem; }
-            .event-title { font-size: 1.8rem; }
-            .container { padding: 35px 20px; margin: 25px auto; }
-            .btn-cta { width: 100%; padding: 16px 10px; font-size: 1rem; }
-            .price-value { font-size: 2rem; }
+            .lodge-name { font-size: 1.8rem; }
+            .lodge-name .acronym { font-size: 1.2rem; }
+            .event-title { font-size: 2rem; gap: 6px; }
+            .event-title .first { font-size: 2.2rem; }
+            
+            .menu-title {
+                font-size: 1.5rem;
+            }
+            .menu-item {
+                font-size: 1rem;
+            }
+            
+            .countdown-item { min-width: 70px; padding: 12px 15px; }
+            .countdown-item .number { font-size: 1.6rem; }
+        }
+
+        /* ===== GLOW EFFECT ===== */
+        .glow {
+            animation: glow 3s ease-in-out infinite alternate;
+        }
+        @keyframes glow {
+            from { text-shadow: 0 0 20px rgba(201, 168, 76, 0.4), 0 0 40px rgba(201, 168, 76, 0.2); }
+            to { text-shadow: 0 0 30px rgba(201, 168, 76, 0.7), 0 0 60px rgba(201, 168, 76, 0.4), 0 0 90px rgba(201, 168, 76, 0.2); }
+        }
+
+        /* ===== PARTICLES ===== */
+        .particles {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 1; overflow: hidden;
+        }
+        .particle {
+            position: absolute;
+            width: 3px; height: 3px;
+            background: var(--gold);
+            border-radius: 50%;
+            opacity: 0;
+            animation: floatUp linear infinite;
+        }
+        @keyframes floatUp {
+            0% { opacity: 0; transform: translateY(100vh) scale(0); }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.6; }
+            100% { opacity: 0; transform: translateY(-10vh) scale(1); }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <!-- Cabeçalho Litúrgico -->
-        <div class="emblem-header">A∴ R∴ L∴ S∴</div>
-        <div class="subtitle">Rosa Negra nº 7074</div>
-        
-        <div class="divider"></div>
-        
-        <!-- Título Principal -->
-        <h1 class="event-title">Noite de Massas</h1>
-        
-        <p class="intro-text">
-            Temos a honra de convidar os queridos irmãos, cunhadas, sobrinhos e amigos para uma agradável noite de celebração, fraternidade e o melhor da culinária italiana.
-        </p>
-        
-        <div class="divider"></div>
-        
-        <!-- Detalhes do Encontro -->
-        <div class="info-section">
-            <p><strong>Data:</strong> <span class="highlight">12 de Setembro de 2026</span></p>
-            <p><strong>Horário:</strong> <span class="highlight">19h30</span></p>
-            
-            <div class="address">
-                <p><strong>Local:</strong> Educandário Santista</p>
-                <p>Av. Conselheiro Nébias, 680 — Santos/SP</p>
+    <!-- Particles Background -->
+    <div class="particles" id="particles"></div>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="ornament-top">
+                <div class="line"><div class="diamond"></div></div>
+            </div>
+
+            <header class="header">
+                <h1 class="lodge-name">
+                    <span class="acronym">A∴ R∴ L∴ S∴</span>
+                    ROSA NEGRA
+                </h1>
+                <div class="lodge-number">Nº 7074</div>
+                <div class="lodge-orient">Oriente de Santos/SP</div>
+            </header>
+
+            <div class="divider">
+                <span class="scroll"></span>
+                <span class="center-ornament"></span>
+                <span class="scroll"></span>
+            </div>
+
+            <section class="event-title-section">
+                <h2 class="event-title glow">
+                    <span class="first">1ª</span> FESTA DA MASSA
+                </h2>
+                <p class="event-subtitle">Noite de Confraternização Maçônica</p>
+            </section>
+
+            <div class="scroll-indicator">
+                <div class="mouse"><div class="wheel"></div></div>
             </div>
         </div>
-        
-        <!-- Card de Investimento Atualizado -->
-        <div class="price-card">
-            <div class="price-label">Valor do Convite</div>
-            <div class="price-value">R$ 75,00</div>
-            <div class="price-note">* Bebidas à parte</div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+        <section class="info-section">
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="icon"></div>
+                    <div class="label">Data</div>
+                    <div class="value">12 de Setembro<br>de 2026</div>
+                </div>
+                <div class="info-card">
+                    <div class="icon"></div>
+                    <div class="label">Horário</div>
+                    <div class="value">19:30 às<br>22:30 h</div>
+                </div>
+                <div class="info-card">
+                    <div class="icon"></div>
+                    <div class="label">Local</div>
+                    <div class="value">Educandário Santista<br>Av. Cons. Nébias, 680<br>Santos/SP</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRICE CARD - R$ 75,00 -->
+        <section class="price-section">
+            <div class="price-card">
+                <div class="price-label">Convite</div>
+                <div class="price-value">R$ 75,00</div>
+                <div class="price-note">
+                    <span class="icon">🍷</span>
+                    <span class="icon">🍺</span>
+                    Bebidas à parte
+                </div>
+            </div>
+        </section>
+
+        <!-- MENU CARD - CARDÁPIO -->
+        <section class="menu-section">
+            <div class="menu-card">
+                <h3 class="menu-title">🍝 Festival de Massas</h3>
+                <p class="menu-subtitle">Deliciosas opções preparadas com carinho</p>
+                
+                <div class="menu-category">Massas Principais</div>
+                <ul class="menu-items">
+                    <li class="menu-item">Lasanha Bolonhesa</li>
+                    <li class="menu-item">Rondelli ao molho sugo</li>
+                    <li class="menu-item">Nhoque à bolonhesa</li>
+                    <li class="menu-item">Ravioli 4 queijos ao molho branco</li>
+                    <li class="menu-item">Macarrão c/ brócolis, bacon e calabresa ao molho branco</li>
+                </ul>
+
+                <div class="menu-category">Acompanhamentos</div>
+                <ul class="menu-items">
+                    <li class="menu-item">Batata frita</li>
+                    <li class="menu-item">Mandioca frita</li>
+                    <li class="menu-item">Almôndegas fritas</li>
+                    <li class="menu-item">Isca de frango empanada</li>
+                </ul>
+
+                <div class="menu-category">Saladas</div>
+                <ul class="menu-items">
+                    <li class="menu-item">Mix de folhas</li>
+                    <li class="menu-item">Saladas variadas</li>
+                    <li class="menu-item">Salada de maionese</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="drinks-banner">
+            <div class="icons">🍷 🍺</div>
+            <div class="text">BEBIDAS À PARTE</div>
         </div>
-        
-        <p class="rsvp-deadline">Para nos estruturarmos e melhor recebê-lo, confirme sua presença:</p>
-        
-        <!-- Chamada para Ação com o Link do WhatsApp Atualizado -->
-        <a href="https://wa.me/5513991779237" target="_blank" class="btn-cta">
-            Confirmar Presença
-        </a>
+
+        <section class="countdown-section">
+            <div class="countdown-label">Contagem Regressiva</div>
+            <div class="countdown-grid" id="countdown">
+                <div class="countdown-item"><div class="number" id="days">---</div><div class="unit">Dias</div></div>
+                <div class="countdown-item"><div class="number" id="hours">--</div><div class="unit">Horas</div></div>
+                <div class="countdown-item"><div class="number" id="minutes">--</div><div class="unit">Minutos</div></div>
+                <div class="countdown-item"><div class="number" id="seconds">--</div><div class="unit">Segundos</div></div>
+            </div>
+        </section>
+
+        <div class="cta-section">
+            <a href="https://wa.me/5513996201994" class="cta-button" target="_blank" rel="noopener noreferrer">
+                ✦ Confirmar Presença ✦
+            </a>
+        </div>
+
+        <div class="jurisdiction">
+            <div class="text">Jurisdicionada ao GOSP/SP</div>
+            <div class="rite">R∴E∴A∴A∴</div>
+        </div>
+
+        <div class="ornament-bottom">
+            <div class="line"><div class="diamond"></div></div>
+            <div class="footer-text">"Liberdade, Igualdade e Fraternidade"</div>
+        </div>
     </div>
 
-    <!-- Pavimento Mosaico Inspirado na Referência -->
-    <div class="checkerboard-footer"></div>
+    <!-- RODAPÉ -->
+    <footer class="site-footer">
+        Mkt Digital - <span>Washington Ciocci</span>
+    </footer>
 
+    <script>
+        function createParticles() {
+            const container = document.getElementById('particles');
+            for (let i = 0; i < 40; i++) {
+                const p = document.createElement('div');
+                p.classList.add('particle');
+                p.style.left = Math.random() * 100 + '%';
+                p.style.animationDuration = (Math.random() * 10 + 8) + 's';
+                p.style.animationDelay = (Math.random() * 10) + 's';
+                p.style.width = p.style.height = (Math.random() * 3 + 1) + 'px';
+                container.appendChild(p);
+            }
+        }
+        createParticles();
+
+        function updateCountdown() {
+            const eventDate = new Date('2026-09-12T19:30:00-03:00');
+            const now = new Date();
+            const diff = eventDate - now;
+            if (diff <= 0) {
+                ['days','hours','minutes','seconds'].forEach(id => document.getElementById(id).textContent = '0');
+                return;
+            }
+            document.getElementById('days').textContent = Math.floor(diff / (1000 * 60 * 60 * 24));
+            document.getElementById('hours').textContent = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = Math.floor((diff % (1000 * 60)) / 1000).toString().padStart(2, '0');
+        }
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    </script>
 </body>
 </html>
